@@ -17,7 +17,7 @@ export default function Skills() {
   return (
     <section 
       id="skills" 
-      className="relative min-h-screen flex flex-col items-center justify-center px-4 md:px-8 py-24 overflow-hidden select-none"
+      className="relative min-h-screen flex flex-col items-center justify-center px-4 md:px-8 py-24 overflow-x-hidden select-none"
       style={{
         background: 'radial-gradient(circle at 15% 25%, rgba(0, 229, 255, 0.04) 0%, transparent 45%), radial-gradient(circle at 85% 75%, rgba(139, 92, 246, 0.05) 0%, transparent 45%), linear-gradient(to bottom, transparent 0%, rgba(3, 3, 13, 0.35) 20%, rgba(5, 5, 24, 0.5) 50%, rgba(3, 3, 13, 0.35) 80%, transparent 100%)'
       }}

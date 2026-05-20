@@ -42,7 +42,7 @@ export default function Contact() {
   return (
     <section 
       id="contact" 
-      className="relative min-h-screen flex flex-col items-center justify-between px-4 md:px-8 pt-28 pb-10 z-10 overflow-hidden select-none"
+      className="relative min-h-screen flex flex-col items-center justify-between px-4 md:px-8 pt-28 pb-10 z-10 overflow-x-hidden select-none"
       style={{
         background: 'radial-gradient(circle at center, rgba(139, 92, 246, 0.04) 0%, transparent 60%)'
       }}
