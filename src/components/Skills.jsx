@@ -1,8 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 export default function Skills() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const skillsList = [
     { name: 'C', color: '#3B82F6', shadow: 'rgba(59, 130, 246, 0.4)' },
@@ -30,7 +40,7 @@ export default function Skills() {
       <motion.div
         initial={{ opacity: 0, y: 15 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: true, margin: isMobile ? "-20px" : "-100px" }}
         transition={{ duration: 0.8 }}
         className="flex flex-col items-center mb-20 text-center z-10"
       >
@@ -48,8 +58,8 @@ export default function Skills() {
       <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-10 max-w-4xl w-full px-4 justify-center items-center z-20">
         {skillsList.map((skill, index) => {
           const isEven = index % 2 === 0;
-          const initialX = isEven ? -250 : 250;
-          const initialRotate = isEven ? -15 : 15;
+          const initialX = isMobile ? (isEven ? -40 : 40) : (isEven ? -200 : 200);
+          const initialRotate = isEven ? -6 : 6;
 
           const isHovered = hoveredIndex === index;
           const isAnyHovered = hoveredIndex !== null;
@@ -59,7 +69,7 @@ export default function Skills() {
               key={`${skill.name}-${index}`}
               initial={{ opacity: 0, x: initialX, rotate: initialRotate }}
               whileInView={{ opacity: 1, x: 0, rotate: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: true, margin: isMobile ? "-20px" : "-100px" }}
               transition={{
                 type: "spring",
                 stiffness: 60,
