@@ -1,6 +1,7 @@
 import React from 'react';
 import CanvasBg from './components/CanvasBg';
 import Hero from './components/Hero';
+import About from './components/About';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
 
@@ -15,8 +16,14 @@ export default function App() {
 
       {/* Main Content Layout */}
       <main className="relative z-10">
-        {/* Section 1: Hero / About Me */}
+        {/* Section 1: Hero */}
         <Hero />
+
+        {/* Divider */}
+        <div className="glowing-divider" />
+
+        {/* Section 1.5: About Me */}
+        <About />
 
         {/* Divider */}
         <div className="glowing-divider" />
